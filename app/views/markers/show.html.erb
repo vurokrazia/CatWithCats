@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @marker.user_id %>
+</p>
+
+<p>
+  <strong>Win:</strong>
+  <%= @marker.win %>
+</p>
+
+<p>
+  <strong>Lose:</strong>
+  <%= @marker.lose %>
+</p>
+
+<%= link_to 'Edit', edit_marker_path(@marker) %> |
+<%= link_to 'Back', markers_path %>

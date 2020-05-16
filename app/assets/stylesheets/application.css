@@ -1,0 +1,110 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  /* grid-gap: 10px; */
+  grid-template-columns: [c-inicio] 300px [c-panel-1] 1fr [c-hero-1] 1fr [c-hero-2] 1fr [c-fin];
+  grid-template-rows:
+    [r-inicio] minmax(30px, 60px) [r-panel-1] 1fr [r-panel-2] minmax(
+      70px,
+      100px
+    )
+    [r-fin];
+  grid-auto-flow: row;
+}
+.item {
+  display: grid;
+  border: 2px dashed ;;
+}
+.item p {
+  align-self: center;
+}
+.menu {
+  grid-column: c-inicio / c-fin;
+  grid-row: r-inicio / r-panel-1;
+  border: 2px dashed crimson;
+}
+.hero {
+  /*grid-area: hero;*/
+  grid-column: c-panel-1 / c-fin;
+  grid-row: r-panel-1 / r-panel-2;
+  border: 2px dashed rgb(128, 100, 251);
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:  
+  "cat_a cat_b cat_c"
+  "cat_d cat_e cat_f"
+  "cat_g cat_h cat_i"
+  ;
+}
+.panel {
+  /*grid-area: panel;*/
+  grid-column: c-inicio / c-panel-1;
+  grid-row: r-panel-1 / r-panel-2;
+  border: 2px dashed rgb(134, 108, 253);
+}
+.footer {
+  grid-column: c-inicio / c-fin;
+  grid-row: r-panel-2 / r-fin-2;
+  border: 2px dashed rgb(230, 94, 32);
+  /*grid-area: footer;*/
+}
+
+.cat-a {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_a;
+}
+.cat-b {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_b;
+}
+.cat-c {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_c;
+}
+.cat-d {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_d;
+}
+.cat-e {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_e;
+}
+.cat-f {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_f;
+}
+.cat-g {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_g;
+}
+.cat-h {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_h;
+}
+.cat-i {
+  border: 1px dashed deepskyblue;
+  grid-area: cat_i;
+}
+.cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .hero .cat {
+  background-repeat:no-repeat;
+  background-position: center center;
+}
+.cat:hover {
+  color: red;
+}
