@@ -15,3 +15,45 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+const obj = {
+  cats:[],
+  turn: false,
+}
+const accions = {
+  load_objs() {
+    obj.cats = document.getElementsByClassName("cat") 
+  },
+  clean_class_column(column){
+    column.classList.remove(accions.find_key_class(column.className))
+  },
+  add_class_column(column){
+    column.classList.add(obj.turn ? 'circle' : 'square')//accions.find_key_class(column.className)
+    obj.turn = !obj.turn 
+  },
+  find_key_class(class_name){
+    if (accions.find_class(class_name,"square")){
+      return "square"
+    } else if (accions.find_class(class_name,"circle")){
+      return "circle"
+    }
+  },
+  column_event(column){
+    column.addEventListener("click",() => { 
+      accions.clean_class_column(column)
+      accions.add_class_column(column)
+    })
+  },
+  find_class(name,class_name){
+    return name.includes(class_name)
+  },  
+}
+
+document.addEventListener("turbolinks:load", function() {
+  accions.load_objs()
+  for (let index = 0; index < obj.cats.length; index++) {
+    var element = obj.cats[index]
+    accions.clean_class_column(element)
+    accions.column_event(element)
+    console.log(element);
+  }
+});

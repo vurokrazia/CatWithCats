@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: rgb(170, 158, 223);
 }
 
 .container {
@@ -31,6 +32,10 @@
   grid-column: c-inicio / c-fin;
   grid-row: r-inicio / r-panel-1;
   border: 2px dashed crimson;
+}
+.invited {
+  grid-column: c-inicio / c-fin;
+  grid-row: r-panel-1 / r-panel-2;
 }
 .hero {
   /*grid-area: hero;*/
