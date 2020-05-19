@@ -1,0 +1,62 @@
+.card {
+  background-color: var(--color-card);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 55px;
+  padding: 35px 0px;
+}
+form {
+  display: inherit;  
+  flex-direction: inherit;
+}
+form .field {
+  display: inherit;  
+  flex-direction: row;
+  width: 100%;
+}
+form .field label {
+  width: 35%;
+  font-weight: 400;
+  margin: 10px 50px 10px 45px;
+  color: var(--color-label);
+}
+form .field em {
+  font-size: 8px;
+}
+form .field input {
+  width: 65%;
+  margin: 10px 50px 10px 50px;
+}
+form .actions {
+  width: 100%;
+  display: inherit; 
+  flex-direction: row-reverse;
+}
+form .actions .btn:first-child {
+  margin-right: 50px;
+}
+.btn {
+  border-radius: 10px;
+  width: 180px;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 5px 10px 5px;
+}
+.btn-success {
+  background-color: #4CAF50;
+}
+.btn-primary {
+  background-color: rgb(76, 91, 175);
+}
+.btn-secondary {
+  background-color: rgb(76, 130, 175);
+}
+.btn {
+  cursor: pointer;
+}

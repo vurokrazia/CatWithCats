@@ -2,12 +2,24 @@
  *= require_tree .
  *= require_self
  */
+ :root {
+  --color-title: #272727;
+  --color-primary: #c0c0c0c0;
+  --color-primary-text: #000;
+  --color-secondary-text: rgb(63, 0, 180);
+  --color-body: #faf6f6df;
+  --color-card: #b4ddffdf;
+  --color-label: #272727;
+  --color-placeholder: #f0f0f0f0;
+}
+
 * {
   margin: 0;
   padding: 0;
-  background-color: rgb(170, 158, 223);
 }
-
+body{
+  background-color: var(--color-body);
+}
 .container {
   height: 100vh;
   display: grid;
@@ -34,8 +46,9 @@
   border: 2px dashed crimson;
 }
 .invited {
-  grid-column: c-inicio / c-fin;
+  grid-column: c-panel-1 / c-hero-2;
   grid-row: r-panel-1 / r-panel-2;
+  height: 100%;
 }
 .hero {
   /*grid-area: hero;*/
@@ -113,3 +126,4 @@
 .cat:hover {
   color: red;
 }
+
