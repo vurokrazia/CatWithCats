@@ -7,8 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-import {  user, channel_notifications }  from '../channels/web_notifications_channel'
-
+import {  user, channel_notifications, RoomChannel }  from '../channels/web_notifications_channel'
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -47,7 +46,6 @@ const accions = {
     column.addEventListener("click",() => { 
       accions.clean_class_column(column)
       accions.add_class_column(column)
-      console.log(user);
       channel_notifications.send({ user_id:user.id, body: "This is a cool chat app.", index: index })
     })
   },
@@ -58,4 +56,6 @@ const accions = {
 
 document.addEventListener("turbolinks:load", function() {
   accions.load_objs()  
+  var room =  new RoomChannel()
+  room.send_data("")
 });

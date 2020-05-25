@@ -33,13 +33,21 @@ ActiveRecord::Schema.define(version: 2020_05_13_040907) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "game_roots", force: :cascade do |t|
+    t.boolean "available", default: true
     t.integer "user_id", null: false
-    t.string "name"
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
+    t.index ["user_id"], name: "index_game_roots_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "game_root_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_root_id"], name: "index_groups_on_game_root_id"
   end
 
   create_table "icons", force: :cascade do |t|
@@ -64,8 +72,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_040907) do
     t.string "name"
     t.string "last_name"
     t.integer "age"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,7 +91,9 @@ ActiveRecord::Schema.define(version: 2020_05_13_040907) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "groups", "users"
+  add_foreign_key "game_roots", "users"
+  add_foreign_key "groups", "game_roots"
   add_foreign_key "icons", "groups"
   add_foreign_key "markers", "users"
+  add_foreign_key "profiles", "users"
 end

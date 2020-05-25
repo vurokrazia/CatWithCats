@@ -8,6 +8,7 @@ module ApplicationCable
 
     private
       def find_verified_user
+        puts "|| signed #{cookies.signed['user.id']}  "
         if verified_user = env['warden'].user
           verified_user
         else

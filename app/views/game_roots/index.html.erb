@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Game Roots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Available</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_roots.each do |game_root| %>
+      <tr>
+        <td><%= game_root.available %></td>
+        <td><%= game_root.user_id %></td>
+        <td><%= link_to 'Show', game_root %></td>
+        <td><%= link_to 'Edit', edit_game_root_path(game_root) %></td>
+        <td><%= link_to 'Destroy', game_root, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game Root', new_game_root_path %>

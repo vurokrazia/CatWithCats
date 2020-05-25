@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :game_roots
   mount ActionCable.server => '/cable'
   resources :markers
   resources :profiles
