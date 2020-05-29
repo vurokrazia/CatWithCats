@@ -1,34 +1,45 @@
 <div class="panel">
-          
+  <ul id="user-list-online">
+    <% if user_signed_in?  %>    
+      <% @users.each do |user| %> 
+        <li class="user_<%= user.id %> users">
+        <%= user.email %>  
+          <%# <p>
+            
+          </p> %>
+        </li>    
+      <% end %> 
+    <% end %> 
+  </ul>
 </div>
 <div class="hero">
   <div class="square cat cat-a">
-      
-    </div>
-    <div class="square cat cat-b">
-      
-    </div>
-    <div class="square cat cat-c">
-      
-    </div>
-    <div class="cat cat-d">
-      
-    </div>
-    <div class="cat cat-e">
-      
-    </div>
-    <div class="circle cat cat-f">
-      
-    </div>
-    <div class="cat cat-g">
-      
-    </div>
-    <div class="circle cat cat-h">
-      
-    </div>
-    <div class="circle  cat cat-i">
-      
-    </div>
+    
+  </div>
+  <div class="square cat cat-b">
+    
+  </div>
+  <div class="square cat cat-c">
+    
+  </div>
+  <div class="cat cat-d">
+    
+  </div>
+  <div class="cat cat-e">
+    
+  </div>
+  <div class="circle cat cat-f">
+    
+  </div>
+  <div class="cat cat-g">
+    
+  </div>
+  <div class="circle cat cat-h">
+    
+  </div>
+  <div class="circle  cat cat-i">
+    
+  </div>
 </div>
 <style>
   <% if user_signed_in?  %>

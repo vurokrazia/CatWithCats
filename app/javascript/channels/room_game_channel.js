@@ -1,31 +1,26 @@
 import consumer from "./consumer"
-function RoomGame() {
-  this.id = 0;
-  this.email = "";
-  this.created_at = ""
-  this.updated_at = ""
-  this.channel = null
-  this.key = "RoomGame"
-};
-RoomGame.prototype.set_params = function(params){
-  this.id = params["id"]
-}
-RoomGame.prototype.active_channel = function() {
-  var _this = this;
+import RoomGame from '../packs/room_game'
+function RoomGameChannel() {
+  this.room_game = new RoomGame(this)
+  this.key        = "RoomGame"
   this.channel = consumer.subscriptions.create("RoomGameChannel", {
-    connected() {
-      console.log(_this.key,"connected");
-      // Called when the subscription is ready for use on the server
-    },
-  
-    disconnected() {
-      // Called when the subscription has been terminated by the server
-    },
-  
-    received(data) {
-      console.log(this.key,data);
-      // Called when there's incoming data on the websocket for this channel
+      connected() {
+        // Called when the subscription is ready for use on the server
+      },
+    
+      disconnected() {
+        // Called when the subscription has been terminated by the server
+      },
+    
+      received(data) {
+        //  this.room_game
+        // Called when there's incoming data on the websocket for this channel
+      }
+    });
+    this.send_movement = function (user_id,column) {
+      this.channel.send({ user_id: user_id,column:column })
     }
-  });
-}
-export default RoomGame;
+  }
+  
+
+export default RoomGameChannel;

@@ -6,8 +6,12 @@ class User < ApplicationRecord
   after_create :create_room_gate
   has_one :game_root
   has_one :profile
+  #after_save :status_session
   def create_room_gate
     self.create_game_root!
+  end
+  def status_session
+    ActionCable.server.broadcast "user_online_channel", { key: "user_online", user: self }
   end
 end
 # class ClassName
