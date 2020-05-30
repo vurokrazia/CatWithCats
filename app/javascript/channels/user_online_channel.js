@@ -27,6 +27,7 @@ const UserOnlineChannel = function(){
       li.innerHTML = user.email
       li.classList.add("user_"+user.id)
       li.classList.add("users")
+      li.classList.add("list-group-item")
       ul.appendChild(li)
     });
   }

@@ -20,7 +20,7 @@
 body{
   background-color: var(--color-body);
 }
-.container {
+._container {
   height: 100vh;
   display: grid;
   /* grid-gap: 10px; */
@@ -35,7 +35,7 @@ body{
 }
 .item {
   display: grid;
-  border: 2px dashed ;;
+  /*border: 2px dashed ;;*/
 }
 .item p {
   align-self: center;
@@ -43,7 +43,7 @@ body{
 .menu {
   grid-column: c-inicio / c-fin;
   grid-row: r-inicio / r-panel-1;
-  border: 2px dashed crimson;
+  /*border: 2px dashed crimson;*/
 }
 .invited {
   grid-column: c-panel-1 / c-hero-2;
@@ -54,7 +54,7 @@ body{
   /*grid-area: hero;*/
   grid-column: c-panel-1 / c-fin;
   grid-row: r-panel-1 / r-panel-2;
-  border: 2px dashed rgb(128, 100, 251);
+  /*border: 2px dashed rgb(128, 100, 251);*/
 
   display: grid;
   grid-template-columns: auto;
@@ -69,12 +69,12 @@ body{
   /*grid-area: panel;*/
   grid-column: c-inicio / c-panel-1;
   grid-row: r-panel-1 / r-panel-2;
-  border: 2px dashed rgb(134, 108, 253);
+  /*border: 2px dashed rgb(134, 108, 253);*/
 }
 .footer {
   grid-column: c-inicio / c-fin;
   grid-row: r-panel-2 / r-fin-2;
-  border: 2px dashed rgb(230, 94, 32);
+  /*border: 2px dashed rgb(230, 94, 32);*/
   /*grid-area: footer;*/
 }
 
@@ -119,11 +119,26 @@ body{
   align-items: center;
   justify-content: center;
 }
-.container .hero .cat {
+._container .hero .cat {
   background-repeat:no-repeat;
   background-position: center center;
 }
 .cat:hover {
   color: red;
 }
-
+ul{
+  background-color: rebeccapurple;
+}
+.users
+{
+  color: rebeccapurple;
+  margin: 0px 0px 0px  0px;
+  transition: margin .35s;
+}
+.users:hover
+{
+  color: purple;
+  margin: 1.5px 15px 1px  1px;
+  transition: margin .25s;
+  border: 2px dashed purple;
+}

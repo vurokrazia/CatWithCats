@@ -1,18 +1,24 @@
-<div class="panel">
-  <ul id="user-list-online">
-    <% if user_signed_in?  %>    
-      <% @users.each do |user| %> 
-        <li class="user_<%= user.id %> users">
+<% if user_signed_in?  %>    
+  <style>
+    .circle {
+      background-image: url( <%= image_url('cat_b.png') %> );
+      background-color: #c0c0c0c0;
+    }
+    .square {
+      background-image: url( <%= image_url('cat_a.png') %> );
+      background-color: #000;
+    }
+  </style>
+  <div class="panel">
+  <ul id="user-list-online" class="list-group mx-1">
+    <% @users.each do |user| %> 
+      <li class="user_<%= user.id %> users list-group-item">
         <%= user.email %>  
-          <%# <p>
-            
-          </p> %>
-        </li>    
-      <% end %> 
-    <% end %> 
+      </li>    
+    <% end %>
   </ul>
-</div>
-<div class="hero">
+  </div>
+  <div class="hero">
   <div class="square cat cat-a">
     
   </div>
@@ -40,14 +46,5 @@
   <div class="circle  cat cat-i">
     
   </div>
-</div>
-<style>
-  <% if user_signed_in?  %>
-    .circle {
-      background-image: url( <%= image_url('cat_b.png') %> );
-    }
-    .square {
-      background-image: url( <%= image_url('cat_a.png') %> );
-    }
-  <% end %>
-</style>
+  </div>
+<% end %>
