@@ -1,19 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary mb-3">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <%= link_to 'Home', root_path, :class => 'nav-item nav-link' %> 
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-item nav-link' %> 
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-item nav-link'  %>
+        <li class="nav-item ">
+          <%= link_to 'Home', root_path, :class => 'nav-link' %> 
+        </li>
+        <li class="nav-item ">
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %> 
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item ">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+        </li>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'nav-item nav-link'  %> 
-        <%= link_to "Login", new_user_session_path, :class => 'nav-item nav-link'  %>
+        <li class="nav-item ">
+          <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %> 
+        </li>
+        <li class="nav-item ">
+          <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+        </li>
       <% end %>
-    </div>
+    </ul>
   </div>
 </nav>
 <% if notice %>

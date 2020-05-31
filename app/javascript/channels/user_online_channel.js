@@ -3,6 +3,7 @@ import UsersOnline from "../packs/users_online"
 const UserOnlineChannel = function(){
   this.users_online = new UsersOnline(this)
   this.have_list = function() {
+    var ga
     return this.find_element_list().children != undefined
   }
   this.delete_users_offline = function () {
@@ -11,6 +12,7 @@ const UserOnlineChannel = function(){
   }
   this.delete_user_li = function() {
     var array = this.find_element_list().childNodes
+    console.log("delete_user_li",array);
     for (let index = 1; index < array.length; index++) {
       var element = array[index]
       //if (element.classList[0] == "user_"+element.id)
@@ -18,7 +20,7 @@ const UserOnlineChannel = function(){
     }
   }
   this.find_element_list = function() {
-    return document.getElementById("user-list-online")
+    return document.getElementById("user-list-online")//document.getElementsByClassName("users")
   }
   this.display_users_online = function(){
     var ul = this.find_element_list()
@@ -32,7 +34,7 @@ const UserOnlineChannel = function(){
     });
   }
   this.refresh_list = function() {
-    var array = document.getElementsByClassName("users")
+    var array = this.find_element_list()
     for (var index = 0; index < array.length; index++) {
       const element = array[index];
       var id = array[index].classList[0].replace("user_","")

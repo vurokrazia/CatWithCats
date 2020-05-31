@@ -26,7 +26,7 @@ body{
   /* grid-gap: 10px; */
   grid-template-columns: [c-inicio] 300px [c-panel-1] 1fr [c-hero-1] 1fr [c-hero-2] 1fr [c-fin];
   grid-template-rows:
-    [r-inicio] minmax(30px, 60px) [r-panel-1] 1fr [r-panel-2] minmax(
+    [r-inicio] 0px [r-panel-1] 1fr [r-panel-2] minmax(
       70px,
       100px
     )
@@ -126,16 +126,16 @@ body{
 .cat:hover {
   color: red;
 }
-ul{
+._container ul{
   background-color: rebeccapurple;
 }
-.users
+._container .users
 {
   color: rebeccapurple;
   margin: 0px 0px 0px  0px;
   transition: margin .35s;
 }
-.users:hover
+._container .users:hover
 {
   color: purple;
   margin: 1.5px 15px 1px  1px;

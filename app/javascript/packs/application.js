@@ -62,8 +62,10 @@ const accions = {
 
 document.addEventListener("turbolinks:load", function() {
   accions.load_objs() 
-  web_notifications_channel.channel()
-  user_online_channel.channel()  
   user_online_channel.refresh_list()
+  setTimeout(() => {
+    web_notifications_channel.channel()
+    user_online_channel.channel()  
+  }, 1500);
   //room_game_channel.channel()
 });

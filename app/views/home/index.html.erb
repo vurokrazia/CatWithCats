@@ -1,50 +1,52 @@
-<% if user_signed_in?  %>    
-  <style>
-    .circle {
-      background-image: url( <%= image_url('cat_b.png') %> );
-      background-color: #c0c0c0c0;
-    }
-    .square {
-      background-image: url( <%= image_url('cat_a.png') %> );
-      background-color: #000;
-    }
-  </style>
+<section class="_container">
   <div class="panel">
-  <ul id="user-list-online" class="list-group mx-1">
-    <% @users.each do |user| %> 
-      <li class="user_<%= user.id %> users list-group-item">
-        <%= user.email %>  
-      </li>    
-    <% end %>
-  </ul>
+    <ul id="user-list-online" class="list-group mx-1">
+      <% @users.each do |user| %> 
+        <li class="user_<%= user.id %> users list-group-item">
+          <%= user.email %>  
+        </li>    
+      <% end %>
+    </ul>
   </div>
   <div class="hero">
-  <div class="square cat cat-a">
-    
+    <div class="square cat cat-a">
+      
+    </div>
+    <div class="square cat cat-b">
+      
+    </div>
+    <div class="square cat cat-c">
+      
+    </div>
+    <div class="cat cat-d">
+      
+    </div>
+    <div class="cat cat-e">
+      
+    </div>
+    <div class="circle cat cat-f">
+      
+    </div>
+    <div class="cat cat-g">
+      
+    </div>
+    <div class="circle cat cat-h">
+      
+    </div>
+    <div class="circle  cat cat-i">
+      
+    </div>
   </div>
-  <div class="square cat cat-b">
-    
+  <div class="footer">    
   </div>
-  <div class="square cat cat-c">
-    
-  </div>
-  <div class="cat cat-d">
-    
-  </div>
-  <div class="cat cat-e">
-    
-  </div>
-  <div class="circle cat cat-f">
-    
-  </div>
-  <div class="cat cat-g">
-    
-  </div>
-  <div class="circle cat cat-h">
-    
-  </div>
-  <div class="circle  cat cat-i">
-    
-  </div>
-  </div>
-<% end %>
+</section>
+<style>
+  .circle {
+    background-image: url( <%= image_url('cat_b.png') %> );
+    background-color: #c0c0c0c0;
+  }
+  .square {
+    background-image: url( <%= image_url('cat_a.png') %> );
+    background-color: #000;
+  }
+</style>
