@@ -5,6 +5,7 @@
   </h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
     <div class="form-group my-2">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>

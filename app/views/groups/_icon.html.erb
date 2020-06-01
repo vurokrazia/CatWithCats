@@ -1,0 +1,25 @@
+<div class='nested-fields px-5 col-6'>
+      <div class="form-group">
+        <%= f.input :name, #label: false,
+          label_method: :name,
+          placeholder: :name,
+          input_html: { class: 'form-control '} %>
+      </div>      
+    <div class="form-group">
+      <%= f.input :color, #label: false,
+        label_method: :color,
+        placeholder: :color,
+        input_html: { class: 'form-control '}, 
+        as: :color %>
+    </div>
+    <div class="form-group">
+      <%= f.input :image, #label: false,
+        label_method: :file,
+        placeholder: :file,
+        input_html: { class: 'form-control '}, 
+        as: :file %>
+    </div>
+    <div class="form-group align-end">
+      <%= link_to_remove_association t('actions.remove'), f, class:"btn btn-danger btn-sm"  %>
+    </div>
+</div>

@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.new(group_params)
 
     respond_to do |format|
       if @group.save
@@ -64,11 +64,11 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = current_user.groups.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:user_id, :name, :description)
+      params.require(:group).permit(:name, :description, icons_attributes: [ :id, :name, :color, :image, :_destroy ])
     end
 end

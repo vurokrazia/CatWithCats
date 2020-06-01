@@ -1,18 +1,24 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  available              :boolean          default(FALSE)
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  after_create :create_room_gate
-  has_one :game_root
   has_one :profile
-  #after_save :status_session
-  def create_room_gate
-    self.create_game_root!
-  end
-  def status_session
-    ActionCable.server.broadcast "user_online_channel", { key: "user_online", user: self }
-  end
+  has_many :groups
 end
 # class ClassName
 #   attr :n

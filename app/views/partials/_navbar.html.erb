@@ -10,16 +10,19 @@
           <%= link_to 'Home', root_path, :class => 'nav-link' %> 
         </li>
         <li class="nav-item ">
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %> 
+          <%= link_to t('resources.user.title.edit'), edit_user_registration_path, :class => 'nav-link' %> 
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
+            <%= t('resources.group.singular') %> 
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <% unless current_user.groups.size == 2 %>
+              <%= link_to t('resources.group.title.new'), new_group_path, :class => 'dropdown-item' %> 
+            <% end %>  
+            <% current_user.groups.each do |group| %>
+              <%= link_to t('resources.group.title.edit', { name:group.name }), edit_group_path(group), :class => 'dropdown-item' %> 
+            <% end %>
           </div>
         </li>
         <li class="nav-item ">

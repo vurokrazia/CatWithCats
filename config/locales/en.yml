@@ -30,4 +30,47 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  words:
+    name: "Name"
+    description: "Description"
+    email: "Email"
+    loses: "Loses"
+    wins: "Victories"
+    age: "Age"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    last_name: "Last name"
+  actions:
+    send: "Send"
+    add: "Add"
+    remove: "remove"
+    cancel_account: "Cancel my account"
+    unhappy: "Unhappy?"
+    sure: "Are you sure?"
+    sign_up: "Sign up"
+    update: "Update"
+  resources:
+    user:
+      singular: "User"
+      plural: "Users"
+      title:
+        new: "Register"
+        edit: "Edit account"
+    group:
+      singular: "Group"
+      plural: "Groups"
+      title:
+        new: "Register images group"
+        edit: "Edit images group - %{name}"
+    icons:
+      singular: "Icon"
+      plural: "Icons"
+      title:
+        new: "Register icon"
+        edit: "Edit icon"
+    profile:
+      singular: "Profile"
+      plural: "Profiles"
+      title:
+        new: "Create profile"
+        edit: "Edit profile"

@@ -58,3 +58,8 @@ gem "devise", "~> 4.7"
 gem "redis", "~> 4.1"
 
 gem "pry", "~> 0.13.1"
+
+gem "cocoon", "~> 1.2"
+gem "simple_form", "~> 5.0"
+
+gem "jquery-rails", "~> 4.4"

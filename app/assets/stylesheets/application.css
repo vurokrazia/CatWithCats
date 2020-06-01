@@ -7,7 +7,7 @@
   --color-primary: #c0c0c0c0;
   --color-primary-text: #000;
   --color-secondary-text: rgb(63, 0, 180);
-  --color-body: #faf6f6df;
+  --color-body: #19108b3a;
   --color-card: #b4ddffdf;
   --color-label: #272727;
   --color-placeholder: #f0f0f0f0;
@@ -18,7 +18,7 @@
   padding: 0;
 }
 body{
-  background-color: var(--color-body);
+  background-color: var(--color-body) !important;
 }
 ._container {
   height: 100vh;
@@ -120,8 +120,12 @@ body{
   justify-content: center;
 }
 ._container .hero .cat {
-  background-repeat:no-repeat;
-  background-position: center center;
+  /* background-repeat:no-repeat;
+  background-position: center center; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center; 
 }
 .cat:hover {
   color: red;
@@ -141,4 +145,8 @@ body{
   margin: 1.5px 15px 1px  1px;
   transition: margin .25s;
   border: 2px dashed purple;
+}
+.align-end {
+  display: flex;
+  justify-content: flex-end;
 }

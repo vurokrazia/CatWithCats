@@ -1,32 +1,61 @@
-<%= form_with(model: group, local: true) do |form| %>
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<%= simple_form_for @group do |form| %>
+  <div class="card my-2">
+    <h1 class="text-center my-4"><%= title ||= "nope" %></h1>
+    <div class="mx-5">
 
-      <ul>
-        <% group.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <% if group.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+          <ul>
+            <% group.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group my-2">
+        <%= form.label :name %>
+        <%= form.text_field :name, class:"form-control"  %>
+      </div>
+
+      <div class="form-group my-2">
+        <%= form.label :description %>
+        <%= form.text_area :description, class:"form-control"  %>
+      </div>
+
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="card my-2">
+    <div class="links row mt-5" id="links_icon">
+      <div class="col-12">
+        <h3 class="text-center">
+          Icons
+        </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= form.simple_fields_for :icons do |icon| %>
+        <div class="col-6">
+          <%= render 'icon', { f:icon }  %>
+        </div>    
+      <% end %>
+      <div class="col-12 align-end">
+        <%= link_to_add_association t('actions.add'), form, :icons, partial:"icon", id:"add_icon",  class:"btn btn-info mr-5 my-2" %>
+      </div>  
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group my-2 align-end">
+                  <%= form.submit t('actions.send'), class:"btn btn-primary my-2 mr-5" %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

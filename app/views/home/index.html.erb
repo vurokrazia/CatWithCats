@@ -41,12 +41,13 @@
   </div>
 </section>
 <style>
+  <% group = current_user.groups.last %> 
   .circle {
-    background-image: url( <%= image_url('cat_b.png') %> );
-    background-color: #c0c0c0c0;
+    background-image: url( <%= url_for(group.icons.first.image) %> );
+    background-color: <%= group.icons.first.color %>;
   }
   .square {
-    background-image: url( <%= image_url('cat_a.png') %> );
-    background-color: #000;
+    background-image: url( <%= url_for(group.icons.last.image) %> );
+    background-color: <%= group.icons.last.color %>;
   }
 </style>
